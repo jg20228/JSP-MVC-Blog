@@ -2,6 +2,7 @@ package com.cos.blog.util;
 
 import java.io.PrintWriter;
 
+
 import javax.servlet.http.HttpServletResponse;
 
 public class Script {
@@ -21,13 +22,12 @@ public class Script {
 			
 			//메세지를 동적으로 보여줄 수 있음
 			out.println("alert('"+msg+"');");
+		
 			
 			//UX 측면에서 history.back 매우 중요함
 			out.println("history.back();");
 			out.println("</script>");
 		} catch (Exception e) {
-
 		}
-
 	}
 }

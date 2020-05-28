@@ -1,6 +1,7 @@
 package com.cos.blog.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,10 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.cos.blog.action.Action;
 import com.cos.blog.action.user.UsersJoinAction;
 import com.cos.blog.action.user.UsersJoinProcAction;
-
-/**
- * Servlet implementation class UsersController
- */
 
 
 // http://localhost:8000/blog/user

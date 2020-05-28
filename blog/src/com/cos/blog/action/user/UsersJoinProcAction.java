@@ -21,7 +21,7 @@ public class UsersJoinProcAction implements Action{
 		// 0. 유효성 검사
 		if
 		(
-				//require를 걸었을건데 이게 날라오면 정상적인 접근이 아님
+				//required를 걸었을건데 이게 날라오면 정상적인 접근이 아님
 				//정상적인 접근이 아닌게 확실하니 걸러야함
 				request.getParameter("username").equals("") ||
 				request.getParameter("username") ==null ||
@@ -58,6 +58,8 @@ public class UsersJoinProcAction implements Action{
 				.address(address)
 				.userRole(userRole)
 				.build();
+	
+		
 		// 3. DB연결 - UserRepositroy의 save() 호출
 		UsersRepository usersRepository = UsersRepository.getInstance();
 		int result = usersRepository.save(user);
@@ -66,11 +68,11 @@ public class UsersJoinProcAction implements Action{
 		if(result==1) {
 			
 			//여기서도 Script로 이동하는게 좋음
-			
 			RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
 			dis.forward(request, response);
 		}else {
 			Script.back("회원가입에 실패하였습니다.", response);
+			
 			
 			
 			

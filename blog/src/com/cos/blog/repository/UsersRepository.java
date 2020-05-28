@@ -30,7 +30,8 @@ public class UsersRepository {
 	
 	public int save(Users user) {
 		//유저 받아서 insert하면 끝
-		final String SQL ="INSERT INTO USERS(id, username, password, email, address, userRole, createDate) VALUES(USERS_SEQ.nextval, ?,?,?,?,?,sysdate) ";
+		final String SQL ="INSERT INTO USERS(id, username, password, email, address, userRole, createDate) "
+				+ "VALUES(USERS_SEQ.nextval, ?,?,?,?,?,sysdate) ";
 		try {
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(SQL);
