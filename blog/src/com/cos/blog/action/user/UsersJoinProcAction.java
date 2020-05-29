@@ -68,8 +68,19 @@ public class UsersJoinProcAction implements Action{
 		if(result==1) {
 			
 			//여기서도 Script로 이동하는게 좋음
-			RequestDispatcher dis = request.getRequestDispatcher("index.jsp");
-			dis.forward(request, response);
+			
+			//5.29
+			//RequestDispatcher dis = request.getRequestDispatcher("user/login.jsp");
+			//dis.forward(request, response);
+			//login 이나 join이 이미 만들어져 있으면 위와같이 경로를 찾아 가는게 아니라 만들어진것을 찾아가면된다.
+			
+			
+			//2가지 방법 
+			//잘안씀 - 1 .response.sendRedirect("/blog/user?cmd=login");
+			//2.
+			Script.href("회원가입에 성공하였습니다.", "/blog/user?cmd=login", response);
+			
+			
 		}else {
 			Script.back("회원가입에 실패하였습니다.", response);
 			

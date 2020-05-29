@@ -5,11 +5,9 @@
 <fullyQualifiedTypeName name="com.google.gson.Gson"/>
 <fullyQualifiedTypeName name="com.cos.ch03.User"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="org.junit.Test"/>
 <fullyQualifiedTypeName name="com.cos.blog.model.Board"/>
 <fullyQualifiedTypeName name="com.cos.blog.model.Reply"/>
-<fullyQualifiedTypeName name="com.cos.blog.util.Script"/>
 <fullyQualifiedTypeName name="com.sun.jmx.snmp.Timestamp"/>
 <fullyQualifiedTypeName name="java.sql.Timestamp"/>
 <fullyQualifiedTypeName name="lombok.Data"/>
@@ -26,11 +24,16 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.cos.blog.model.RoleType"/>
-<fullyQualifiedTypeName name="com.cos.blog.model.Users"/>
 <fullyQualifiedTypeName name="com.cos.blog.repository.UsersRepository"/>
-<fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="com.cos.blog.action.user.UsersJoinAction"/>
 <fullyQualifiedTypeName name="com.cos.blog.action.user.UsersJoinProcAction"/>
+<fullyQualifiedTypeName name="com.cos.blog.action.user.UsersLoginAction"/>
+<fullyQualifiedTypeName name="com.cos.blog.action.board.BoardHomeAction"/>
 <fullyQualifiedTypeName name="com.cos.blog.action.Action"/>
+<fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+<fullyQualifiedTypeName name="com.cos.blog.action.user.UsersLoginProcAction"/>
+<fullyQualifiedTypeName name="com.cos.blog.model.Users"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="com.cos.blog.util.Script"/>
 </qualifiedTypeNameHistroy>
