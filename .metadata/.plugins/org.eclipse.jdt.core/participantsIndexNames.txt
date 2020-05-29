@@ -9,6 +9,8 @@ C:\src\jspwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3358414519.
 \blog\src
 C:\src\jspwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\648987399.index
 \test\src
+C:\src\jspwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3154032153.index
+\blog2\src
 C:\src\jspwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3143325655.index
 \blog\src
 C:\src\jspwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1693861151.index

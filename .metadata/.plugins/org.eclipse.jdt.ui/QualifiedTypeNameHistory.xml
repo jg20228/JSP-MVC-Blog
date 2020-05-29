@@ -9,15 +9,6 @@
 <fullyQualifiedTypeName name="com.cos.blog.model.Board"/>
 <fullyQualifiedTypeName name="com.cos.blog.model.Reply"/>
 <fullyQualifiedTypeName name="com.sun.jmx.snmp.Timestamp"/>
-<fullyQualifiedTypeName name="java.sql.Timestamp"/>
-<fullyQualifiedTypeName name="lombok.Data"/>
-<fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
-<fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
-<fullyQualifiedTypeName name="lombok.Builder"/>
-<fullyQualifiedTypeName name="javax.naming.Context"/>
-<fullyQualifiedTypeName name="javax.naming.InitialContext"/>
-<fullyQualifiedTypeName name="javax.sql.DataSource"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="com.cos.blog.db.DBConn"/>
@@ -36,4 +27,13 @@
 <fullyQualifiedTypeName name="com.cos.blog.model.Users"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="com.cos.blog.util.Script"/>
+<fullyQualifiedTypeName name="lombok.Data"/>
+<fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+<fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+<fullyQualifiedTypeName name="lombok.Builder"/>
+<fullyQualifiedTypeName name="java.sql.Timestamp"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="javax.naming.Context"/>
+<fullyQualifiedTypeName name="javax.naming.InitialContext"/>
+<fullyQualifiedTypeName name="javax.sql.DataSource"/>
 </qualifiedTypeNameHistroy>
