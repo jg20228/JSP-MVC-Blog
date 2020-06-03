@@ -48,8 +48,10 @@ public class UsersLoginProcAction implements Action{
 			
 			//6.1 로그인시 기억하기 체크관련 추가
 			if(request.getParameter("remember") != null) {
-				Cookie cookie = new Cookie("remember", user.getUsername());
-				response.addCookie(cookie);
+//				Cookie cookie = new Cookie("remember", user.getUsername());
+//				response.addCookie(cookie);
+				
+				response.setHeader("Set-Cookie", "remember="+user.getUsername()+"");
 			}else {
 				Cookie cookie = new Cookie("remember", null);
 				cookie.setMaxAge(0);

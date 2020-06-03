@@ -3,10 +3,10 @@
 <%@ include file="../include/nav.jsp"%>
 
 <%
-	String remember = (String) request.getAttribute("remember");
+/* 	String remember = (String) request.getAttribute("remember");
 	if (remember == null) {
 		remember = "";
-	}
+	} */
 %>
 
 <div class="container">
@@ -14,7 +14,7 @@
 		class="was-validated">
 
 		<div class="form-group">
-			<label for="username">Username:</label> <input type="text" value="<%=remember %>"
+			<label for="username">Username:</label> <input type="text" value="${cookie.remember.value}"
 				class="form-control" id="username" placeholder="Enter username"
 				name="username" required>
 			<div class="valid-feedback">Valid.</div>
