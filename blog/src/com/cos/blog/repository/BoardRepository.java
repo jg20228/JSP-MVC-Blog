@@ -90,7 +90,8 @@ public class BoardRepository {
 	
 	//관리자를 위함
 	public List<Board> findAll() {
-		final String SQL ="SELECT ID,USERID,TITLE,CONTENT,READCOUNT,CREATEDATE FROM BOARD ORDER BY id DESC";
+		final String SQL ="SELECT ID,USERID,TITLE,CONTENT,READCOUNT,CREATEDATE "
+				+ " FROM BOARD ORDER BY id DESC";
 		List<Board> boards = new ArrayList<>();
 		
 		try {

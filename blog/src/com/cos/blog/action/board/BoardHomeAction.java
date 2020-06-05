@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.cos.blog.action.Action;
 import com.cos.blog.model.Board;
 import com.cos.blog.repository.BoardRepository;
+import com.cos.blog.util.HtmlParser;
 
 public class BoardHomeAction implements Action{
 
@@ -21,18 +22,17 @@ public class BoardHomeAction implements Action{
 		BoardRepository boardRepository =BoardRepository.getInstance();
 		List<Board> boards = boardRepository.findAll();
 		
-		for (Board board : boards) {
-			String preview = board.getContent();
-			preview = preview.substring(0, 10)+"...";
+		for (Board board : boards) {	
+			String preview = HtmlParser.getContentPreview(board.getContent());
 			board.setContent(preview);
 		}
+
 		//2. request에 담고
 		request.setAttribute("boards", boards);
 		
 		//3. 이동 home.jsp
 		RequestDispatcher dis = request.getRequestDispatcher("home.jsp");
-		dis.forward(request, response);
-		
+		dis.forward(request, response);	
 	}
-
 }
+
