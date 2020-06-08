@@ -19,7 +19,7 @@
 <body>
 
 	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-		<a class="navbar-brand" href="index.jsp">zzz blog</a>
+		<a class="navbar-brand" href="/blog/index.jsp">zzz blog</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -27,7 +27,7 @@
 			<ul class="navbar-nav">
 
 				<c:choose>
-					<c:when test="${empty sessionScope.principal }">
+					<c:when test="${empty sessionScope.principal}">
 						<li class="nav-item"><a class="nav-link" href="/blog/user?cmd=login">로그인</a></li>
 						<li class="nav-item"><a class="nav-link" href="/blog/user?cmd=join">회원가입</a></li>
 					</c:when>

@@ -6,6 +6,19 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class HtmlParser {
+	
+	public static String youtube(String content) {
+
+		content = "https://www.youtube.com/watch?v=D-c0smnjYjI";
+		
+		Document doc = Jsoup.parse(content);
+		System.out.println(doc);
+		Elements pTags = doc.select("a");
+
+		return null;
+	}
+	
+	
 	public static String getContentPreview(String content) {
 
 		Document doc = Jsoup.parse(content);
@@ -13,7 +26,6 @@ public class HtmlParser {
 
 		for (Element pTag : pTags) {
 			String text = pTag.text();
-			System.out.println("text의 길이 :"+text.length());
 			if (text.length() > 0) {
 				if (text.length() < 11) {
 					return pTag.text();
