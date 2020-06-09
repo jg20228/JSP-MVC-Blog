@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.cos.blog.action.Action;
 import com.cos.blog.dto.DetailResponseDto;
 import com.cos.blog.repository.BoardRepository;
+import com.cos.blog.util.HtmlParser;
 import com.cos.blog.util.Script;
 
 public class BoardDetailAction implements Action {
@@ -25,6 +26,11 @@ public class BoardDetailAction implements Action {
 		BoardRepository boardRepository = BoardRepository.getInstance();
 		DetailResponseDto dto = boardRepository.findById(id);
 		if (dto != null) {
+			String content = dto.getBoard().getContent();
+			content = HtmlParser.youtube(content);
+			dto.getBoard().setContent(content);
+			
+			
 			// 데이터를 담고 갈때도 사용 RequestDispatcher
 			// SendRedirect랑 똑같은데 request와 response를 유지하는 기법
 			request.setAttribute("dto", dto);

@@ -4,15 +4,15 @@
 
 <!-- 주소 /를 적는다는건 최상단으로 감, method http://localhost:8000/blog/-->
 <div class="container">
-	<form action="/blog/user?cmd=updateProc" method="POST" class="was-validated" onsubmit="return validate()">
+	<form action="/blog/user?cmd=updateProc" method="POST" class="was-validated">
 	
 		<!-- id랑 title,content 3개를 넘겨야 수정이 가능하다. -->
-		<input type="hidden" value="${principal.id}" name="id"/>
+		<input type="hidden" value="${sessionScope.principal.id}" name="id"/>
 
 		<div class="form-group">		
 			<label for=username>Username:</label> 
 			
-			<input type="text" value="${principal.username}"
+			<input type="text" value="${sessionScope.principal.username}"
 			class="form-control" id="username" placeholder="Enter username" name="username" readonly>
 			
 			<div class="valid-feedback">Valid.</div>
@@ -31,7 +31,7 @@
 		<div class="form-group">
 			<label for="email">Email:</label> 
 			
-			<input type="email" value="${principal.email }"
+			<input type="email" value="${sessionScope.principal.email}"
 			class="form-control" id="email" placeholder="Enter email" name="email" required>
 			
 			<div class="valid-feedback">Valid.</div>
@@ -46,7 +46,7 @@
 			<!-- justify -->
 			<button type="button" class="btn btn-warning float-right" onclick="goPopup()">주소검색</button>
 
-			<input type="text" value="${principal.address}"
+			<input type="text" value="${sessionScope.principal.address}"
 			class="form-control" id="address" placeholder="Enter address" name="address" required readonly>
 
 			<div class="valid-feedback">Valid.</div>

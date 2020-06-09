@@ -28,10 +28,8 @@ public class UsersUpdateProcAction implements Action{
 		// 0. 유효성 검사
 		if
 		(
-				//required를 걸었을건데 이게 날라오면 정상적인 접근이 아님
-				//정상적인 접근이 아닌게 확실하니 걸러야함
-				request.getParameter("username").equals("") ||
-				request.getParameter("username") ==null ||
+				request.getParameter("id").equals("") ||
+				request.getParameter("id") ==null ||
 				request.getParameter("password").equals("") ||
 				request.getParameter("password") ==null ||
 				request.getParameter("email").equals("") ||
@@ -39,8 +37,6 @@ public class UsersUpdateProcAction implements Action{
 				request.getParameter("address").equals("") ||
 				request.getParameter("address") ==null 
 		) {
-			//밑에 실행 안하고 바로 빠져나감
-			//여기다가 return 하기전에 request.remote~를 Log를 남겨야함
 			return;
 		}
 		
@@ -65,10 +61,11 @@ public class UsersUpdateProcAction implements Action{
 		int result = usersRepository.update(user);
 		// 4. index.jsp 페이지로 이동
 		if(result==1) {
-			//여기
+			//여기서 회원수정이 완료되었고
+			//새로운 정보를 DB에서 가져와서 session에 넣어둔다.
 			Users principal = usersRepository.findById(id);
 			session.setAttribute("principal", principal);
-			Script.href("회원수정에 성공하였습니다.", "index.jsp", response);		
+			Script.href("회원수정에 성공하였습니다.", "/blog/index.jsp", response);		
 		}else {
 			Script.back("회원수정에 실패하였습니다.", response);	
 		}

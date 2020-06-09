@@ -6,19 +6,33 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class HtmlParser {
-	
+
 	public static String youtube(String content) {
-
-		content = "https://www.youtube.com/watch?v=D-c0smnjYjI";
-		
 		Document doc = Jsoup.parse(content);
-		System.out.println(doc);
-		Elements pTags = doc.select("a");
-
-		return null;
+		Elements aTags = doc.select("a");
+		// https://youtu.be/a9t_TpinIYc
+		// https://www.youtube.com/watch?v=D-c0smnjYjI
+		for (Element aTag : aTags) {
+			String href = aTag.attr("href");
+			String youtubeId = null;
+			if (href != null && !(aTag.attr("target").equals("_blank"))) {
+				if (href.contains("https://youtu.be")) {
+					String[] hrefArr = href.split("/");
+					youtubeId = hrefArr[3];
+					System.out.println("/분기");
+				} else if (href.contains("https://www.youtube.com/")) {
+					String[] hrefArr = href.split("=");
+					youtubeId = hrefArr[1];
+					System.out.println("=분기");
+				}
+				String video = "<br/><iframe src='http://www.youtube.com/embed/" + youtubeId
+						+ "'width='800px' height='400px' frameborder='0' allowfullscreen></iframe>";
+				aTag.after(video);
+			}
+		}
+		return doc.toString();
 	}
-	
-	
+
 	public static String getContentPreview(String content) {
 
 		Document doc = Jsoup.parse(content);
@@ -29,7 +43,7 @@ public class HtmlParser {
 			if (text.length() > 0) {
 				if (text.length() < 11) {
 					return pTag.text();
-					
+
 				} else {
 					return pTag.text().substring(0, 10) + "...";
 				}
