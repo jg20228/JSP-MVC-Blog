@@ -18,9 +18,20 @@ public class BoardHomeAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int page = Integer.parseInt(request.getParameter("page"));
+		
+		
 		//1. DB연결해서 Board 목록 다 불러와서
 		BoardRepository boardRepository =BoardRepository.getInstance();
-		List<Board> boards = boardRepository.findAll();
+		
+		
+		
+		// 다 가져오기
+		List<Board> count = boardRepository.findAll();
+		int total = (count.size()/3);
+		
+		// 3건만 페이징하여 가져오기
+		List<Board> boards = boardRepository.findAll(page);
 		
 		for (Board board : boards) {	
 			String preview = HtmlParser.getContentPreview(board.getContent());
@@ -30,6 +41,7 @@ public class BoardHomeAction implements Action{
 		//2. request에 담고
 		request.setAttribute("boards", boards);
 		
+		request.setAttribute("total", total);
 		//3. 이동 home.jsp
 		RequestDispatcher dis = request.getRequestDispatcher("home.jsp");
 		dis.forward(request, response);	

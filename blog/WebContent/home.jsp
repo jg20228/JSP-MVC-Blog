@@ -13,6 +13,12 @@
 			</div>
 		</div>
 	</c:forEach>
+	<br/>
+	<!-- disabled -->
+	<ul class="pagination justify-content-center">
+		<li class="page-item <c:if test="${param.page==0}">disabled</c:if>"><a class="page-link" href="/blog/board?cmd=home&page=${param.page-1}">Previous</a></li>
+		<li class="page-item <c:if test="${param.page==total}">disabled</c:if>"><a class="page-link" href="/blog/board?cmd=home&page=${param.page+1}">Next</a></li>
+	</ul>
 </div>
 
 <%@ include file="/include/footer.jsp"%>

@@ -24,6 +24,7 @@
 	
 	<br/><br/>
 	<h6>작성자 : <i>${dto.username}</i></h6>
+	<h5>조회수 : ${dto.board.readCount}</h5>
 	<br/>
 
 	<h3><b>${dto.board.title}</b></h3>

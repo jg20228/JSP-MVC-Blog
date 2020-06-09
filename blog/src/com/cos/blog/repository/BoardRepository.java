@@ -94,6 +94,45 @@ public class BoardRepository {
 		return -1;
 	}
 	
+	public List<Board> findAll(int page) {
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("SELECT /*+ INDEX_DESC(BOARD SYS_C007922)*/id, ");
+		sb.append("userId, title, content, readCount, createDate ");
+		sb.append("FROM board ");
+		sb.append("OFFSET ? ROWS FETCH NEXT 3 ROWS ONLY ");
+		
+		final String SQL =sb.toString();
+		List<Board> boards = new ArrayList<>();
+		
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, page*3);
+			//물음표 완성	
+			rs = pstmt.executeQuery();
+			//while 돌려서 rs-> java오브젝트에 집어넣기
+			while(rs.next()) {
+				Board board = new Board(
+						rs.getInt("id"),
+						rs.getInt("userId"),
+						rs.getString("title"),
+						rs.getString("content"),
+						rs.getInt("readCount"),
+						rs.getTimestamp("createDate")
+				);
+				boards.add(board);	
+			}
+			return boards;
+		} catch (Exception e) {
+			e.printStackTrace();
+			//오류나면 이 TAG로 찾아가면 된다.
+			System.out.println(TAG + "findAll : PAGE : "+e.getMessage());
+		} finally {
+			DBConn.close(conn, pstmt, rs);
+		}
+		return null;
+	}
 	
 	
 	//관리자를 위함
@@ -156,6 +195,8 @@ public class BoardRepository {
 						.readCount(rs.getInt(5))
 						.createDate(rs.getTimestamp(6))
 						.build();
+				
+				
 				dto.setBoard(board);
 				dto.setUsername(rs.getString(7));
 			}
@@ -168,5 +209,24 @@ public class BoardRepository {
 			DBConn.close(conn, pstmt, rs);
 		}
 		return null;
+	}
+	
+	public int updateReadCount(int id) {
+		final String SQL ="UPDATE BOARD SET READCOUNT = READCOUNT +1 WHERE id =?";
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			//물음표 완성	
+			pstmt.setInt(1, id);
+			
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			//오류나면 이 TAG로 찾아가면 된다.
+			System.out.println(TAG + "update : "+e.getMessage());
+		} finally {
+			DBConn.close(conn, pstmt);
+		}
+		return -1;
 	}
 }

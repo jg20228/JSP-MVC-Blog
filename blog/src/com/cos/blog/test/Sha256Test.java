@@ -14,16 +14,7 @@ public class Sha256Test {
 
 	@Test
 	public void encSha256() {
-		String plain = "1234";
-		String result = "";
-
-		// byte화
-		byte[] bytePlain = plain.getBytes();
-		byte[] byteSalt = SALT.getBytes();
-
-		// salt를 섞어서 막 채워 넣을 곳
-		byte[] bytePlainAndSalt = new byte[bytePlain.length + byteSalt.length];
-
+		
 //		int count = 0;
 //		
 //		for (int i = 0; i < bytePlain.length; i++) {
@@ -34,20 +25,31 @@ public class Sha256Test {
 //		for (int i = count; i < (byteSalt.length+count); i++) {
 //			bytePlainAndSalt[i] = byteSalt[i-count];
 //		}	
-
-//		int count = 0;
-//		for (int i = 0; i < bytePlainAndSalt.length; i++) {
-//
-//			if (i < bytePlain.length) {
-//				count++;
-//				bytePlainAndSalt[i] = bytePlain[i];
-//			} else {
-//				bytePlainAndSalt[i] = byteSalt[i - count];
-//			}
-//			System.out.print(bytePlainAndSalt[i] + " ");
-//		}
-		//배열 복사
 		
+		
+		String plain = "1234";
+		String result = "";
+
+		// byte화
+		byte[] bytePlain = plain.getBytes();
+		byte[] byteSalt = SALT.getBytes();
+
+		// salt를 섞어서 막 채워 넣을 곳
+		byte[] bytePlainAndSalt = new byte[bytePlain.length + byteSalt.length];
+
+		int count = 0;
+		for (int i = 0; i < bytePlainAndSalt.length; i++) {
+
+			if (i < bytePlain.length) {
+				count++;
+				bytePlainAndSalt[i] = bytePlain[i];
+			} else {
+				bytePlainAndSalt[i] = byteSalt[i - count];
+			}
+			System.out.print(bytePlainAndSalt[i] + " ");
+		}
+		
+		//배열 복사
 		//0~bytePlain.length까지
 		System.arraycopy
 		(
@@ -58,7 +60,6 @@ public class Sha256Test {
 				bytePlain.length
 		);
 		
-		
 		//bytePlain의 length부터 salt의 length까지
 		System.arraycopy
 		(
@@ -68,6 +69,8 @@ public class Sha256Test {
 				bytePlain.length,
 				byteSalt.length
 		);
+		
+		
 		
 		try {
 			//SHA-256 고름

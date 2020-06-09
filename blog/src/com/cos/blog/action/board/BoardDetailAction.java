@@ -24,9 +24,11 @@ public class BoardDetailAction implements Action {
 		int id = Integer.parseInt(request.getParameter("id"));
 
 		BoardRepository boardRepository = BoardRepository.getInstance();
+		boardRepository.updateReadCount(id);
 		DetailResponseDto dto = boardRepository.findById(id);
 		if (dto != null) {
 			String content = dto.getBoard().getContent();
+			
 			content = HtmlParser.youtube(content);
 			dto.getBoard().setContent(content);
 			

@@ -67,3 +67,12 @@ CREATE TABLE reply(
     foreign key (boardId) references board (id) on delete cascade
 );
 ```
+
+## page 처리
+
+```sql
+SELECT /*+ INDEX_DESC(BOARD SYS_C007922)*/id, 
+userId, title, content, readCount, createDate
+FROM board
+OFFSET 0 ROWS FETCH NEXT 3 ROWS ONLY;
+```
