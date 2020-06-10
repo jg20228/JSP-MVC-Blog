@@ -14,6 +14,8 @@ public class JSoupParserTest {
 		//String content = "<a href=https://www.youtube.com/watch?v=D-c0smnjYjI> </a>";
 		String content = "<a href=https://youtu.be/a9t_TpinIYc></a>";
 		Document doc = Jsoup.parse(content);
+		System.out.println(doc);
+		
 		Elements els = doc.select("a");
 		Element el = els.get(0);
 
