@@ -136,7 +136,6 @@ public class BoardRepository {
 		return null;
 	}
 	
-	
 	public List<Board> findAll(int page, String keyword) {
 		StringBuilder sb = new StringBuilder();
 		
