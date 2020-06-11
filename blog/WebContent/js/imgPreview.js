@@ -24,16 +24,22 @@ $("#img__preview").on("change", function(e) {
 		$("#img__preview").val('');
 		return;
 	}
-	//숙제
-	//여기서 이 사이즈를 넘어가면 2MB 넘어가므로 취소시킴 
-	//f.size= 1024*1024*2
 	
+	// 숙제
+	// 여기서 이 사이즈를 넘어가면 2MB 넘어가므로 취소시킴
+	// f.size= 1024*1024*2
+	if(f.size > 1024*1024*2){
+		alert("이미지는 2MB 이하만 가능합니다.");
+		$("#img__preview").val('');
+		return;
+	}
 	
 	var reader = new FileReader();
 
 	// 바인딩된 이벤트
 	reader.onload = function(e) {
 		$("#img__wrap").attr("src", e.target.result);
+		// console.log(e.target.result);
 	};
 
 	// 비동기 실행

@@ -85,7 +85,7 @@ CREATE TABLE readCount(
     boardId number,
     cookie varchar2(200),
     createDate timestamp,
-    foreign key (boardId) references board (id)
+    foreign key (boardId) references board (id) on delete cascade
 );
 -- 시퀀스
 CREATE SEQUENCE ReadCount_seq

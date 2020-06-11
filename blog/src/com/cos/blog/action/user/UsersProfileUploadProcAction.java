@@ -1,6 +1,10 @@
 package com.cos.blog.action.user;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +31,8 @@ public class UsersProfileUploadProcAction implements Action{
 		
 		System.out.println("realPath : "+realPath);
 		System.out.println("contextPath : "+contextPath);
+		
+		
 		try {
 			MultipartRequest multi = new MultipartRequest
 									(
@@ -60,20 +66,14 @@ public class UsersProfileUploadProcAction implements Action{
 			Script.getMessage("오류 : "+e.getMessage(), response);
 		}
 		
-		
-		
-		/* 원래는 이렇게 들고 와서 파싱하는것이나 우리는 파일은 multi. 라이브러리있는거로쓴다
+		 //원래는 이렇게 들고 와서 파싱하는것이나 우리는 파일은 multi. 라이브러리있는거로쓴다
+		/*
 		 * InputStream in = request.getInputStream(); BufferedReader br = new
-		 * BufferedReader(new InputStreamReader(in,"utf-8"));
-		 * 
-		 * 
-		 * 
-		 * StringBuilder sb = new StringBuilder(); String input = null;
-		 * 
-		 * while((input = br.readLine())!=null) { sb.append(input); }
-		 * 
-		 * System.out.println("사진받음"); System.out.println(sb.toString());
-		 * Script.outText("테스트 중", response);
+		 * BufferedReader(new InputStreamReader(in,"utf-8")); StringBuilder sb = new
+		 * StringBuilder(); String input = null; while((input = br.readLine())!=null) {
+		 * sb.append(input); } System.out.println("사진받음");
+		 * System.out.println(sb.toString()); Script.outText("테스트 중", response);
 		 */
+		
 	}
 }

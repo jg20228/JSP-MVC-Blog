@@ -14,7 +14,6 @@
 		</form>
 	</div>
 
-
 	<!-- 게시글 -->
 	<c:forEach var="board" items="${boards}">
 		<div class="card m-2" style="width: 100%">
@@ -25,10 +24,7 @@
 			</div>
 		</div>
 	</c:forEach>
-
 	<br />
-
 	<%@ include file="/include/page.jsp"%>
-
 </div>
 <%@ include file="/include/footer.jsp"%>
