@@ -2,7 +2,7 @@ package com.cos.blog.controller;
 
 import java.io.IOException;
 
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,9 +16,12 @@ import com.cos.blog.action.user.UsersJoinProcAction;
 import com.cos.blog.action.user.UsersLoginAction;
 import com.cos.blog.action.user.UsersLoginProcAction;
 import com.cos.blog.action.user.UsersLogoutAction;
+import com.cos.blog.action.user.UsersProfileUploadAction;
+import com.cos.blog.action.user.UsersProfileUploadProcAction;
 import com.cos.blog.action.user.UsersUpdateAction;
 import com.cos.blog.action.user.UsersUpdateProcAction;
 import com.cos.blog.action.user.UsersUsernameCheckAction;
+import com.cos.blog.util.Script;
 
 
 // http://localhost:8000/blog/user
@@ -94,6 +97,12 @@ public class UsersController extends HttpServlet {
 		}else if(cmd.equals("usernameCheck")) {
 			// 회원이름 중복 확인
 			return new UsersUsernameCheckAction();
+		}else if(cmd.equals("profileUpload")) {
+			// 회원 프로필 업로드
+			return new UsersProfileUploadAction();
+		}else if(cmd.equals("profileUploadProc")) {
+			// 회원 프로필 업로드
+			return new UsersProfileUploadProcAction();
 		}
 		return null;
 	}	
