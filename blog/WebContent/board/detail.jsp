@@ -10,8 +10,7 @@
 
 	<!-- warning, danger -> 색깔만 바뀐것 -->
 	<%@ include file="../include/goBack.jsp"%>
-	<button class="btn btn-secondary" onclick="history.back()">뒤로가기</button>
-	<c:if test="${sessionScope.principal.id == dto.board.userId }">
+	<c:if test="${sessionScope.principal.id == dto.board.userId}">
 		<!-- dto를 들고가도 되지만 자바코드를 안쓰기 위해서 -->
 		<!-- 동기화를 위해서 항상 SELECT를 사용 -->
 		<!-- 상세보기->수정페이지 title과 content를 들고 가야한다.(모델에 들렀다가 데이터를 들고 가야함) -->
