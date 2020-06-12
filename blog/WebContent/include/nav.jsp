@@ -16,7 +16,7 @@
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <!-- CSS -->
-<link href="/blog/css/styles.css" rel="stylesheet">
+<link href="/blog/css/style.css" rel="stylesheet">
 
 </head>
 <body>
@@ -47,12 +47,12 @@
 				<!-- onerror = src에서 못찾았을때를 대비-->
 				<!-- style="border-radius: 둥글게 만들고 싶으면 자신의 사이즈의 반으로 설정하면 된다. -->
 				<c:if test="${not empty sessionScope.principal}">
-					<a href="/blog/user?cmd=profileUpload">
-						<li class="nav-item">
+					<li class="nav-item">
+						<a href="/blog/user?cmd=profileUpload">
 						<img style="border-radius:20px" onerror="this.src='/blog/image/userProfile.png'" 
 						src="${sessionScope.principal.userProfile}" width="40px" height="40px"/>
-						</li>
-					</a>
+						</a>
+					</li>
 				</c:if>	
 			</ul>
 		</div>

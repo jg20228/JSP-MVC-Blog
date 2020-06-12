@@ -20,8 +20,8 @@
 		<item key="index" value="2"/>
 	</section>
 	<section name="completion_proposal_size">
-		<item key="size.x" value="625"/>
-		<item key="size.y" value="406"/>
+		<item key="size.x" value="819"/>
+		<item key="size.y" value="494"/>
 	</section>
 	<section name="quick_assist_proposal_size">
 	</section>
@@ -95,5 +95,16 @@
 		<item key="DIALOG_WIDTH" value="577"/>
 		<item key="DIALOG_HEIGHT" value="439"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.75|0|WINDOWS|1|-13|0|0|0|400|0|0|0|-127|3|2|1|50|맑은 고딕"/>
+	</section>
+	<section name="RefactoringWizard.preview">
+		<item key="width" value="600"/>
+		<item key="height" value="400"/>
+	</section>
+	<section name="org.eclipse.ltk.ui.refactoring.settings">
+		<item key="updateSimilarElements" value="false"/>
+		<item key="updateSimilarElementsMatchStrategy" value="1"/>
+		<item key="updateTextualMatches" value="false"/>
+		<item key="updateQualifiedNames" value="false"/>
+		<item key="patterns" value="*"/>
 	</section>
 </section>
