@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.base.work.action.Action;
 import com.base.work.action.product.ProductHomeAction;
+import com.base.work.action.product.ProductSortAction;
 
 /**
  * Servlet implementation class ProductController
@@ -41,6 +42,8 @@ public class ProductController extends HttpServlet {
 	public Action router(String cmd) {
 		if(cmd.equals("home")) {
 			return new ProductHomeAction();
+		}else if(cmd.equals("sort")) {
+			return new ProductSortAction();
 		}
 		return null;
 	}

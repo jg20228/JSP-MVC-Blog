@@ -53,11 +53,11 @@
 <fullyQualifiedTypeName name="com.cos.blog.action.reply.ReplyWriteProcAction"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="java.lang.StringBuffer"/>
-<fullyQualifiedTypeName name="com.google.gson.Gson"/>
 <fullyQualifiedTypeName name="com.cos.blog.model.Reply"/>
 <fullyQualifiedTypeName name="com.cos.blog.repository.ReplyRepository"/>
 <fullyQualifiedTypeName name="com.cos.blog.util.Script"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.cos.blog.dto.ReplyResponseDto"/>
 <fullyQualifiedTypeName name="com.nhncorp.lucy.security.xss.XssPreventer"/>
+<fullyQualifiedTypeName name="com.google.gson.Gson"/>
 </qualifiedTypeNameHistroy>

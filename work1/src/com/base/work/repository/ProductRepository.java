@@ -51,4 +51,36 @@ public class ProductRepository {
 		return null;
 	}
 	
+	public List<Product> findAll(String name){
+		final String SQL = "SELECT ID, NAME, TYPE, PRICE, COUNT FROM product ORDER BY ? DESC";
+		List<Product> products =null;
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, name);
+			
+			rs = pstmt.executeQuery();
+			
+			products = new ArrayList<>();
+			while(rs.next()) {
+				Product product = Product.builder()
+						.id(rs.getInt("ID"))
+						.name(rs.getString("NAME"))
+						.type(rs.getString("TYPE"))
+						.price(rs.getInt("PRICE"))
+						.count(rs.getInt("COUNT"))
+						.build();
+				products.add(product);
+			}
+			for (Product product : products) {
+				System.out.println(product.getName());
+			}
+			return products;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBConn.close(conn, pstmt, rs);
+		}
+		return null;
+	}
 }

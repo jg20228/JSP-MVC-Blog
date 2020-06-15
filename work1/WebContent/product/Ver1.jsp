@@ -4,7 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <meta charset="UTF-8">
 <title>Ver1</title>
 </head>
@@ -13,32 +16,16 @@
 	<button onclick="price()">가격순</button> 
 	<button onclick="count()">판매순</button>
 	
-	<table style="border:1px;">
+	<ul id="product__list">
 		<c:forEach var="product" items="${products}">
-			<tr style="border:1px;">
-				<td style="border:1px;">
-				${product.id} ${product.name} ${product.type} 
-				${product.price} ${product.count}
-				</td>
-			</tr>
+			<li>
+				<div>
+				${product.id} ${product.name} ${product.type} ${product.price} ${product.count}
+				</div>
+			</li>
 		</c:forEach>
-	</table>
+	</ul>
 </body>
 
-<script>
-
-function home(){
-	alert("처음으로");
-}
-
-function price(){
-	alert("가격순");
-}
-
-function count(){
-	alert("판매순");
-}
-
-</script>
-
+<script src="/work1/js/ver1.js"></script>
 </html>
