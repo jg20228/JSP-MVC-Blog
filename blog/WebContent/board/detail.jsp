@@ -46,19 +46,23 @@
 						<textarea id="reply__write__form" class="form-control" placeholder="write a comment..." rows="3"></textarea>
 						
 						<br>
-						<button onclick="replyWrite(${detailDto.boardDto.board.id},${sessionScope.principal.id})" 
-						type="button" class="btn btn-primary pull-right">댓글쓰기</button>
+						<button onclick="replyWrite(${detailDto.boardDto.board.id}, ${sessionScope.principal.id})" class="btn btn-primary pull-right">댓글쓰기</button>
 						<div class="clearfix"></div>
 						<hr />
 						<!-- 댓글 리스트 시작-->
 						<ul id="reply__list" class="media-list">
 							<c:forEach var = "replyDto" items="${detailDto.replyDtos}">
 								<!-- 댓글 아이템 -->
-								<li class="media">
+								<li id="reply-${replyDto.reply.id}" class="media">
 									<img onerror="this.src='/blog/image/userProfile.png'" src="${replyDto.userProfile}" alt="" class="img-circle">
 									<div class="media-body">
 										<strong class="text-primary">${replyDto.username}</strong>
 										<p>${replyDto.reply.content}</p>
+									</div>
+									<div class="m-2">
+										<c:if test="${replyDto.reply.userId eq sessionScope.principal.id}">
+											<i onclick="replyDelete(${replyDto.reply.id})" class="material-icons i__btn">delete</i>
+										</c:if>
 									</div>
 								</li>
 							</c:forEach>

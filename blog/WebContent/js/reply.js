@@ -1,6 +1,43 @@
+function replyDelete(replyId) {
+	
+	var data = {
+			replyId : replyId
+	}
+	
+	//data, contentType 참고
+	//key=value로 보내는 방법 중 하나
+	//JSON으로 통일하는게 좋다.
+	//remove = 자체를 날림 , empty = 비움
+	//li 자체를 날릴거라서 remove를 쓴다.
+	$.ajax({
+		type : "post",
+		url : "/blog/reply?cmd=deleteProc",
+		data : "replyId="+replyId,
+		contentType : "application/x-www-form-urlencoded; charset=utf-8",
+		dataType : "text"
+	}).done(function(result) {
+		if(result == "1"){
+			alert("댓글 삭제 성공");
+			var replyItem = $("#reply-"+replyId);
+			replyItem.remove();
+		}else{
+			alert("댓글 삭제 실패")
+		}
+	}).fail(function(error) {
+		alert("댓글 삭제 실패");
+	});
+}
+
+
 function replyWrite(boardId, userId) {
 	// key : value
 	// value에 인수들이 들어감
+
+	if(userId === undefined){
+		alert("로그인이 필요합니다.");
+		return;
+	}
+
 	var data = {
 		boardId : boardId,
 		userId : userId,
@@ -41,7 +78,9 @@ function renderReplyList(replyDtos){
 }
 
 function makeReplyItem(replyDto){
-	var replyItem = `<li class="media">`;
+	//reply-id 추가 시작
+	var replyItem = `<li id="reply-${replyDto.reply.id}"class="media">`;
+	//reply-id 추가 끝
 	if(replyDto.userProfile == null){
 		replyItem += `<img src="/blog/image/userProfile.png" class="img-circle">`;	
 	}else{
@@ -51,6 +90,11 @@ function makeReplyItem(replyDto){
 	replyItem += `<strong class="text-primary">${replyDto.username}</strong>`;
 	replyItem += `<p>${replyDto.reply.content}</p>`;
 	replyItem += `</div>`;
+	//휴지통 추가 시작
+	replyItem += `<div class="m-2">`;
+	replyItem += `<i onclick="replyDelete(${replyDto.reply.id})" class="material-icons i__btn">delete</i>`;
+	replyItem += `</div>`;
+	//휴지통 추가 끝
 	replyItem += `</li>`;
 	return replyItem;
 }

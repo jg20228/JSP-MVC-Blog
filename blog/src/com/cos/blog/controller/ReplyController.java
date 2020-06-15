@@ -18,6 +18,7 @@ import com.cos.blog.action.board.BoardUpdateAction;
 import com.cos.blog.action.board.BoardUpdateProcAction;
 import com.cos.blog.action.board.BoardWriteAction;
 import com.cos.blog.action.board.BoardWriteProcAction;
+import com.cos.blog.action.reply.ReplyDeleteProcAction;
 import com.cos.blog.action.reply.ReplyWriteProcAction;
 import com.cos.blog.action.user.UsersJoinAction;
 import com.cos.blog.action.user.UsersJoinProcAction;
@@ -72,6 +73,8 @@ public class ReplyController extends HttpServlet {
 	public Action router(String cmd) {
 		if(cmd.equals("writeProc")) {
 			return new ReplyWriteProcAction(); //글쓰기
+		}else if(cmd.equals("deleteProc")) {
+			return new ReplyDeleteProcAction(); //글쓰기
 		}
 		return null;
 	}	
