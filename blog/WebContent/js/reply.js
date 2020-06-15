@@ -61,7 +61,7 @@ function replyWrite(boardId, userId) {
 			// remove는 element를 지움
 			$("#reply__list").empty();
 			console.log(result);
-			renderReplyList(result);
+			renderReplyList(result, userId);
 			$("#reply__write__form").val("");
 		}
 		// 2.ajax 재호출 findAll() select해서 들고온다.
@@ -71,15 +71,15 @@ function replyWrite(boardId, userId) {
 	});
 }
 
-function renderReplyList(replyDtos){
+function renderReplyList(replyDtos, userId){
 	for(var replyDto of replyDtos){
-		$("#reply__list").append(makeReplyItem(replyDto));
+		$("#reply__list").append(makeReplyItem(replyDto, userId));
 	}
 }
 
-function makeReplyItem(replyDto){
+function makeReplyItem(replyDto, userId){
 	//reply-id 추가 시작
-	var replyItem = `<li id="reply-${replyDto.reply.id}"class="media">`;
+	var replyItem = `<li id="reply-${replyDto.reply.id}" class="media">`;
 	//reply-id 추가 끝
 	if(replyDto.userProfile == null){
 		replyItem += `<img src="/blog/image/userProfile.png" class="img-circle">`;	
@@ -92,7 +92,9 @@ function makeReplyItem(replyDto){
 	replyItem += `</div>`;
 	//휴지통 추가 시작
 	replyItem += `<div class="m-2">`;
-	replyItem += `<i onclick="replyDelete(${replyDto.reply.id})" class="material-icons i__btn">delete</i>`;
+	if(replyDto.reply.userId == userId){
+		replyItem += `<i onclick="replyDelete(${replyDto.reply.id})" class="material-icons i__btn">delete</i>`;
+	}
 	replyItem += `</div>`;
 	//휴지통 추가 끝
 	replyItem += `</li>`;

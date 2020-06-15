@@ -20,5 +20,6 @@
 
 .i__btn{
 	font-size:30px;
-	cursor:pointer;
+	color : red;
+	cursor: pointer;
 }
