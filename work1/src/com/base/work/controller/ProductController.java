@@ -8,8 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.base.work.action.Action;
-import com.base.work.action.product.ProductHomeAction;
-import com.base.work.action.product.ProductSortAction;
+import com.base.work.action.ver.ProductCountAction;
+import com.base.work.action.ver.ProductHomeAction;
+import com.base.work.action.ver.ProductPriceAction;
+import com.base.work.action.ver.ProductVer1Action;
+import com.base.work.action.ver2.ProductDeleteProcAction;
+import com.base.work.action.ver2.ProductInsertProcAction;
+import com.base.work.action.ver2.ProductVer2Action;
+import com.base.work.action.ver3.BaseBallVer3Action;
 
 /**
  * Servlet implementation class ProductController
@@ -40,10 +46,22 @@ public class ProductController extends HttpServlet {
 	}
 	
 	public Action router(String cmd) {
-		if(cmd.equals("home")) {
+		if(cmd.equals("ver1")) {
+			return new ProductVer1Action();
+		}else if(cmd.equals("ver2")) {
+			return new ProductVer2Action();
+		}else if(cmd.equals("ver3")) {
+			return new BaseBallVer3Action();
+		}else if(cmd.equals("count")) {
+			return new ProductCountAction();
+		}else if(cmd.equals("price")) {
+			return new ProductPriceAction();
+		}else if(cmd.equals("home")) {
 			return new ProductHomeAction();
-		}else if(cmd.equals("sort")) {
-			return new ProductSortAction();
+		}else if(cmd.equals("deleteProc")) {
+			return new ProductDeleteProcAction();
+		}else if(cmd.equals("insert")) {
+			return new ProductInsertProcAction();
 		}
 		return null;
 	}

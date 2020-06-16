@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.i__btn{
+	font-size:30px;
+	color : red;
+	cursor: pointer;
+}
+
+.li{
+	cursor: pointer;
+}
