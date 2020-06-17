@@ -21,5 +21,7 @@ C:\src\jspwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1913253211.
 \work1\src
 C:\src\jspwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3113936801.index
 \work1\src
+C:\src\jspwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1484341480.index
+\blog\src
 C:\src\jspwork\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\83170155.index
 \blog\src
